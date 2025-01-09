@@ -1,120 +1,4 @@
 {% extends 'base.html' %} {% block content %}
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Prevent scrolling while the animation plays */
-  }
-
-  .welcome {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #128c7e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    animation: fadeOut 3s forwards;
-  }
-
-  .welcome h1 {
-    color: white;
-    font-size: 2.5rem;
-    text-align: center;
-    animation: slideDown 1.5s ease-out;
-  }
-
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    85% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      display: none;
-      visibility: hidden;
-    }
-  }
-
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-  }
-
-  .buttons h3 {
-    color: #128c7e;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-  }
-
-  .buttons input[type="text"] {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    background-color: #f9f9f9;
-    box-sizing: border-box;
-  }
-
-  button {
-    padding: 12px 15px;
-    font-size: 1rem;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #128c7e;
-    width: 100%;
-    transition: background-color 0.3s ease-in-out;
-  }
-
-  button:hover {
-    background-color: #0e7765;
-  }
-
-  .create-btn {
-    margin-top: 15px;
-    background-color: #25d366;
-  }
-
-  .create-btn:hover {
-    background-color: #1ecf58;
-  }
-</style>
-
-<div class="welcome">
-  <h1>Welcome to Our Chat Room!</h1>
-</div>
-
 <form method="post" class="buttons">
   <h3>Enter The Chat Room</h3>
   <div>
@@ -127,12 +11,7 @@
     />
   </div>
   <div class="join">
-    <input
-      type="text"
-      placeholder="Room Code"
-      name="code"
-      value="{{code}}"
-    />
+    <input type="text" placeholder="Room Code" name="code" value="{{code}}" />
     <button type="submit" name="join">Join a Room</button>
   </div>
   <button type="submit" name="create" class="create-btn">Create a Room</button>
@@ -142,11 +21,4 @@
   </ul>
   {% endif %}
 </form>
-
-<script>
-  setTimeout(() => {
-    const welcome = document.querySelector('.welcome');
-    if (welcome) welcome.style.display = 'none';
-  }, 3000);
-</script>
 {% endblock %}
